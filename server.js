@@ -431,7 +431,8 @@ app.get("/obtener-observaciones-materia", verificarToken, async (req, res) => {
       .from("Observacion")
       .select("id, descripcion, descripcion_larga")
       .eq("id_materia", idMateria)
-      .order("tipo", { ascending: false });
+      .order("tipo", { ascending: false })
+      .order("id", { ascending: true });
 
     if (error) {
       return res
