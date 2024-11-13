@@ -130,11 +130,13 @@ button:hover {
 .notification.error {
   background-color: #b70011;
   color: #ffffff;
+  font-size: 18px; /* Aumenta el tamaño de la letra */
 }
 
 .notification.success {
   background-color: #00cb4d;
   color: #ffffff;
+  font-size: 18px; /* Aumenta el tamaño de la letra */
 }
 
 .table-container {

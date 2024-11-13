@@ -239,14 +239,19 @@ async function cargarAlumnos() {
         throw new Error("Error al obtener los periodos.");
       }
       const periodos = await responsePeriodos.json();
-      if (observacionesGlobales.length === 0) {
+  /*     if (observacionesGlobales.length === 0) {
+        console.log("aaaaa", materiaSeleccionadaId); */
+        console.log(materiaSeleccionadaId);
         observacionesGlobales = await cargarObservaciones(materiaSeleccionadaId);
-      }
+      /* } */
       const periodoActivo = periodos.find((periodo) => esPeriodoActivo(periodo));
       if (periodoActivo) {
-        mostrarToast(
+        /* mostrarToast(
           `Periodo de captura activo: Desde ${new Date(periodoActivo.fecha_inicio).toLocaleDateString()} hasta ${new Date(periodoActivo.fecha_fin).toLocaleDateString()}`,
-          "success");
+          "success"); */
+          mostrarToast(
+            `PERÍODO DE CAPTURA ACTIVO HASTA ${new Date(periodoActivo.fecha_fin).toLocaleDateString()}`,
+            "error");
       } else {
         mostrarToast("No hay ningún periodo de captura activo en este momento.", "warning");
         mostrarToast("Estás en periodo de consulta.", "warning");
@@ -385,7 +390,7 @@ async function obtenerInasistencias(id_alumno, cicloId) {
 
 
 async function cargarObservaciones(idMateria) {
-  if (observacionesGlobales.length === 0) {
+/*   if (observacionesGlobales.length === 0) { */
     const response = await fetch(
       `/obtener-observaciones-materia?id_materia=${idMateria}`,
       {
@@ -401,7 +406,7 @@ async function cargarObservaciones(idMateria) {
     }
 
     observacionesGlobales = await response.json();
-  }
+/*   } */
   return observacionesGlobales;
 }
 

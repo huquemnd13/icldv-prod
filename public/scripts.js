@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         setTimeout(() => {
             notification.classList.remove('show');
-        }, 3000);
+        }, 6000);
     }
 
     if (loginForm) {
@@ -44,8 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     const decodedToken = jwt_decode(data.token);
                     const userRole = decodedToken.id_rol;
 
-                    if (userRole === 1) {
-                        showNotification('Inicio de sesión exitoso.', false);
+                    /* if (userRole === 1) {
+                        showNotification('Inicio de sesión exitoso. ', false);
                         setTimeout(() => {
                             window.location.href = '/administracion.html';
                         }, 2000);
@@ -56,7 +56,21 @@ document.addEventListener('DOMContentLoaded', () => {
                         }, 2000);
                     } else {
                         showNotification('Rol de usuario no reconocido.', true);
-                    }
+                    } */
+
+                        if (userRole === 1) {
+                            showNotification('Inicio de sesión exitoso.', false);
+                            setTimeout(() => {
+                                window.location.href = '/administracion.html';
+                            }, 2000);
+                        } else if (userRole === 2 || userRole === 3 || userRole === 4) {
+                            showNotification('Se les recuerda que la fecha límite para capturar las calificaciones es IMPRORROGABLE y vence el 14 de noviembre.', true);
+                            setTimeout(() => {
+                                window.location.href = '/inicio.html';
+                            }, 6000);
+                        } else {
+                            showNotification('Rol de usuario no reconocido.', true);
+                        } 
 
                 } else {
                     showNotification(data.message, true);
