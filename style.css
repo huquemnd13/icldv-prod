@@ -322,5 +322,5 @@ select.observaciones option, select.calificaciones option, select.inasistencias 
 
 select.observaciones, select.calificaciones, select.inasistencias, select.drops {
   overflow-y: auto; /* Permite el desplazamiento vertical */
-  max-height: 150px; /* Altura máxima del desplegable */
+  max-height: 150px; /* Altura máxima del desplegable  */
 }
