@@ -239,8 +239,7 @@ async function cargarAlumnos() {
         throw new Error("Error al obtener los periodos.");
       }
       const periodos = await responsePeriodos.json();
-  /*     if (observacionesGlobales.length === 0) {
-        console.log("aaaaa", materiaSeleccionadaId); */
+  /*     if (observacionesGlobales.length === 0) {*/
         console.log(materiaSeleccionadaId);
         observacionesGlobales = await cargarObservaciones(materiaSeleccionadaId);
       /* } */
